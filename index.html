@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SKORE — Desire, done right</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --ink:#1a0d22; --plum:#2b1535; --wine:#4a1d44;
+  --rose:#ee6c8f; --gold:#dcb677; --cream:#f6eadc; --mute:#b9a3b8;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{
+  margin:0;background:var(--ink);color:var(--cream);
+  font-family:"Jost",system-ui,sans-serif;font-weight:300;
+  overflow-x:hidden;
+}
+.serif{font-family:"Bodoni Moda",Georgia,serif}
+#hearts{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.heart{position:absolute;bottom:-40px;line-height:1;opacity:0;will-change:transform,opacity;
+  animation:rise linear forwards;text-shadow:0 0 12px currentColor}
+@keyframes rise{
+  0%{transform:translate3d(0,0,0) rotate(-8deg);opacity:0}
+  10%{opacity:.85}
+  50%{transform:translate3d(var(--sway),-55vh,0) rotate(8deg)}
+  90%{opacity:.6}
+  100%{transform:translate3d(calc(var(--sway) * -1),-115vh,0) rotate(-6deg);opacity:0}
+}
+main,footer{position:relative;z-index:2}
+
+/* hero */
+.hero{
+  min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;
+  padding:6rem 1.5rem;
+  background:
+    radial-gradient(60% 50% at 50% 38%,rgba(238,108,143,.22),transparent 70%),
+    radial-gradient(80% 60% at 50% 110%,var(--wine),transparent 70%),
+    var(--ink);
+}
+.brand{letter-spacing:.5em;font-size:.8rem;color:var(--gold);margin:0 0 2.5rem;padding-left:.5em;font-weight:400}
+h1{
+  font-family:"Bodoni Moda",Georgia,serif;font-weight:400;
+  font-size:clamp(3rem,10vw,8rem);line-height:.98;margin:0;letter-spacing:-.02em;
+  background:linear-gradient(180deg,var(--cream) 30%,#e8b9c6 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+h1 em{font-style:italic}
+.sub{margin:2rem 0 3rem;font-size:clamp(1rem,2.2vw,1.35rem);color:var(--mute);letter-spacing:.08em}
+.btn{
+  display:inline-block;padding:1rem 2.6rem;border-radius:999px;text-decoration:none;
+  color:var(--ink);background:linear-gradient(135deg,var(--gold),#f1d9a8);
+  font-weight:500;letter-spacing:.12em;font-size:.9rem;
+  box-shadow:0 10px 40px -10px rgba(220,182,119,.6);
+  transition:transform .3s,box-shadow .3s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 50px -10px rgba(220,182,119,.8)}
+.btn:focus-visible,a:focus-visible{outline:2px solid var(--rose);outline-offset:4px}
+
+/* skore */
+.skore{padding:8rem 1.5rem 9rem;max-width:960px;margin:0 auto}
+.skore h2{
+  font-family:"Bodoni Moda",Georgia,serif;font-weight:400;font-style:italic;
+  font-size:clamp(1.6rem,4vw,2.6rem);text-align:center;margin:0 0 5rem;color:var(--gold)
+}
+.list{list-style:none;margin:0;padding:0}
+.list li{
+  display:flex;align-items:baseline;gap:clamp(1rem,4vw,3rem);
+  padding:1.4rem 0;border-top:1px solid rgba(220,182,119,.22);
+  transition:padding-left .4s, background .4s;
+}
+.list li:last-child{border-bottom:1px solid rgba(220,182,119,.22)}
+.list li:hover{padding-left:1.2rem;background:linear-gradient(90deg,rgba(238,108,143,.12),transparent)}
+.letter{
+  font-family:"Bodoni Moda",Georgia,serif;font-size:clamp(3.5rem,11vw,7.5rem);line-height:1;
+  width:1.1em;color:var(--rose);font-weight:500;
+}
+.dash{color:var(--gold);font-size:clamp(1.2rem,3vw,2rem)}
+.word{font-size:clamp(1.6rem,5vw,3.2rem);letter-spacing:.02em;font-weight:300}
+
+footer{
+  text-align:center;padding:2.5rem 1.5rem 3rem;color:var(--mute);
+  font-size:.85rem;letter-spacing:.2em;border-top:1px solid rgba(220,182,119,.15);
+  background:rgba(26,13,34,.7);
+}
+footer b{color:var(--gold);font-weight:500}
+
+@media (prefers-reduced-motion:reduce){
+  #hearts{display:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div id="hearts" aria-hidden="true"></div>
+
+<main>
+  <section class="hero">
+    <div>
+      <p class="brand">SKORE</p>
+      <h1>Desire,<br><em>done right.</em></h1>
+      <p class="sub">Safe, Symbiotic, Sensational</p>
+      <a class="btn" href="#skore">DISCOVER</a>
+    </div>
+  </section>
+
+  <section class="skore" id="skore">
+    <h2>Introducing SKORE Framework</h2>
+    <ul class="list">
+      <li><span class="letter">S</span><span class="dash">—</span><span class="word">Style</span></li>
+      <li><span class="letter">K</span><span class="dash">—</span><span class="word">Knowledge</span></li>
+      <li><span class="letter">O</span><span class="dash">—</span><span class="word">Openness</span></li>
+      <li><span class="letter">R</span><span class="dash">—</span><span class="word">Respect</span></li>
+      <li><span class="letter">E</span><span class="dash">—</span><span class="word">Ethics</span></li>
+    </ul>
+  </section>
+</main>
+
+<footer>Latest SKORE: <b>1</b></footer>
+
+<script>
+(function(){
+  var box=document.getElementById('hearts');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var hues=[345,320,280,255,210,175,140,55,35,10];
+  function spawn(){
+    var h=document.createElement('span');
+    h.className='heart';
+    h.textContent='\u2665';
+    var hue=hues[Math.floor(Math.random()*hues.length)];
+    h.style.color='hsl('+hue+',85%,'+(60+Math.random()*12)+'%)';
+    h.style.left=(Math.random()*100)+'vw';
+    h.style.fontSize=(10+Math.random()*14)+'px';
+    h.style.setProperty('--sway',((Math.random()*80)-40)+'px');
+    h.style.animationDuration=(8+Math.random()*9)+'s';
+    box.appendChild(h);
+    h.addEventListener('animationend',function(){h.remove()});
+  }
+  for(var i=0;i<14;i++) setTimeout(spawn,i*350);
+  setInterval(function(){ if(!document.hidden) spawn(); },650);
+})();
+</script>
+</body>
+</html>
